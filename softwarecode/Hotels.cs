@@ -71,6 +71,7 @@ namespace softwarecode
 
         private void button3_Click(object sender, EventArgs e)
         {
+
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandType = CommandType.Text;
@@ -127,6 +128,9 @@ namespace softwarecode
             textBox6.Clear();
             textBox8.Clear();
            
+
+
+            
 
         }
     }
