@@ -71,7 +71,67 @@ namespace softwarecode
 
         private void button3_Click(object sender, EventArgs e)
         {
+
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "delete from Add_Hotels where Reservation_ID ='" + textBox4.Text + "'";
+
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            display();
+            MessageBox.Show("record deleted successfully");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "update Add_Hotels set Hotel_Name ='" + textBox1.Text + "' where Reservation_ID = '" + textBox4.Text + "'";
+
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            display();
+            MessageBox.Show("record Edited successfully");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            display();
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "SELECT * FROM Add_Hotels where Reservation_ID = '" + textBox4.Text + "'";
+
+
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+
+            conn.Close();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
+            textBox8.Clear();
+           
+
+
             
+
         }
     }
 }
